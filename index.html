@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>For You, Mom</title>
+
+  <!-- Elegant Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;1,400&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Ambient background -->
+  <div id="particles" class="particles"></div>
+
+  <div class="scene" id="scene">
+
+    <!-- Central Envelope Trigger -->
+    <div class="central-trigger" id="centralTrigger" onclick="toggleWheel(event)">
+      <div class="flap-top-mini"></div>
+      <div class="seal-mini">M</div>
+    </div>
+
+    <!-- Radial Wheel -->
+    <div class="wheel-container" id="wheel-container">
+      <div class="wheel-rotator" id="wheel-rotator">
+
+        <!-- 1. Letter Node -->
+        <div class="wheel-node" data-type="letter" onclick="handleNodeClick(event, this)">
+          <div class="node-pop-wrap">
+            <div class="node-inner">
+              <div class="node-scale-wrap">
+                <div class="node-icon">📜</div>
+                <div class="node-label">Letter</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-full-content">
+            <div class="title">Mommy</div>
+            <div class="text">Hello once again, Maa! It's been quite a journey for us together, right? 20+ years since
+              you
+              first held me in your arms. Thank god I got you as a mom, cuz you're the only one who can bear my madness
+              and
+              still love me the way you do.</div>
+            <div class="text"> What can I say? I really wanted to get you a gift that you'll love this Mother's Day,
+              with money that I earned,
+              but unfortunately, that isn't my reality, yet... 🥲
+            </div>
+
+            <div class="text">
+              So, I made this using the "knowledge" that my college gave me (this is what my exam was two days ago, lol
+              😂), and I really hope you like it. My normal letters needed a digital transformation, anyway. "Grown-Up",
+              right? 😂
+            </div>
+
+            <div class="text"> I won't be very sappy and cheesy, but I hope God gives me you as my mom in every lifetime
+              (I know you're still hurt by that stupid comment of mine)
+            </div>
+
+            <div class="text"> You are my strength and my weakness (in a good way), and I'll always love you. I hope
+              this brings a bright smile to your face today!
+            </div>
+            <div class="text">I love you more than words can say. Thank you for simply being you.</div>
+            <div class="signature">Love you always,<br>Tuza Pillu !</div>
+            <img class="letter-image" src="images/mom_and_me.jpg" alt="A beautiful memory" />
+          </div>
+        </div>
+
+        <!-- 2. Photos Node -->
+        <div class="wheel-node" data-type="photo" onclick="handleNodeClick(event, this)">
+          <div class="node-pop-wrap">
+            <div class="node-inner">
+              <div class="node-scale-wrap">
+                <div class="node-icon">🖼️</div>
+                <div class="node-label">Photos</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-full-content">
+            <div class="title">Beautiful Memories</div>
+            <!-- 
+                          [INSTRUCTIONS FOR ADDING PHOTOS]
+                          Replace the src="..." links below with your Google Photos direct image links.
+                        -->
+            <div class="photos-grid">
+              <div class="polaroid">
+                <img class="polaroid-img" src="images/1.jpg" />
+              </div>
+              <div class="polaroid">
+                <img class="polaroid-img" src="images/2.jpg" />
+              </div>
+              <div class="polaroid">
+                <img class="polaroid-img" src="images/3.jpg" />
+              </div>
+              <div class="polaroid">
+                <img class="polaroid-img" src="images/4.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Quotes Node -->
+        <div class="wheel-node" data-type="quote" onclick="handleNodeClick(event, this)">
+          <div class="node-pop-wrap">
+            <div class="node-inner">
+              <div class="node-scale-wrap">
+                <div class="node-icon">💬</div>
+                <div class="node-label">Quotes</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-full-content">
+            <div class="title">Mom's Wisdom</div>
+            <div class="quote-item">Sherni cha porga aahes tu!</div>
+            <div class="quote-item">You never know what you are capable of doing, unless you try them!</div>
+            <div class="quote-item">Listen to your heart and mind, not your arrogance.</div>
+            <div class="quote-item">Think before saying anything!</div>
+          </div>
+        </div>
+
+        <!-- 4. Memories Node -->
+        <div class="wheel-node" data-type="memory" onclick="handleNodeClick(event, this)">
+          <div class="node-pop-wrap">
+            <div class="node-inner">
+              <div class="node-scale-wrap">
+                <div class="node-icon">✨</div>
+                <div class="node-label">Memories</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-full-content">
+            <div class="title">Golden Moments</div>
+            <ul class="memory-list">
+              <li>The moment when I held you in Jim Corbett.</li>
+              <li>The moments we spent exploring Delhi.</li>
+              <li>Sunday brunches that we made together.</li>
+              <li>Hours spent shopping with you, and me tagging along.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Focus Mode Elements -->
+  <div class="focus-overlay" id="focusOverlay" onclick="unfocusNode()"></div>
+
+  <div class="focus-modal" id="focusModal">
+    <button class="back-btn" id="backBtn" onclick="unfocusNode()">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Back
+    </button>
+    <div class="modal-content-area" id="modalContent"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
